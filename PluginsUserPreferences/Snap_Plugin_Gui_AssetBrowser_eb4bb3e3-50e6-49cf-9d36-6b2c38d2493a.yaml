@@ -1,9 +1,10 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 5
+    size: 6
     values:
-      - Scripts
+      - Scripts/ChangeSize.ts
+      - Scripts/PlayerPositionUpdater.ts
       - SpectaclesSyncKit
       - SpectaclesSyncKit/Examples/InstantiatorExample.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/package.native

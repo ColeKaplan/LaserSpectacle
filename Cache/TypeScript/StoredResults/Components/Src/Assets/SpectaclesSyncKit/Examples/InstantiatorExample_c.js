@@ -16,6 +16,8 @@ function checkUndefined(property, showIfData){
 checkUndefined("instantiator", []);
 // @input Asset.ObjectPrefab prefab
 checkUndefined("prefab", []);
+// @input PlayerPositionUpdater updaterScript
+checkUndefined("updaterScript", []);
 var scriptPrototype = Object.getPrototypeOf(script);
 if (!global.BaseScriptComponent){
    function BaseScriptComponent(){}

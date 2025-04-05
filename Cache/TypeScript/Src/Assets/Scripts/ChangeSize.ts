@@ -26,8 +26,7 @@ export class ChangeSize extends BaseScriptComponent {
             print(
                 `Cole! clicked with input type: ${event.interactor.inputType} at position: ${event.interactor.targetHitInfo.hit.position}`
             );
-            this.sceneObject.getTransform().setLocalScale(this.sceneObject.getTransform().getLocalScale().add(new vec3(1,1,1)))
-            this.sceneObject.destroy()
+            // this.sceneObject.destroy()
         };
 
         interactable.onInteractorTriggerStart(onTriggerStartCallback);
@@ -35,6 +34,6 @@ export class ChangeSize extends BaseScriptComponent {
     }
 
     onUpdate() {
-        
+
     }
 }

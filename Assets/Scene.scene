@@ -28,6 +28,7 @@
   Components:
     - !<own> 00000000-0000-0065-0000-000000000065
     - !<own> d2177509-891b-4faa-9600-6d6531924e40
+    - !<own> e427ab66-c084-428c-b694-2d58dd88f628
 - !<Camera/00000000-0000-0065-0000-000000000065>
   PrefabRemaps:
     []
@@ -4288,6 +4289,7 @@
     "":
       instantiator: !<MappingBased.Instantiator> 1407d323-5cbc-4784-8ff9-e4813f93542b
       prefab: !<reference.ObjectPrefab> 0fd34394-fce6-4f1e-a51a-73a9954ad8c6
+      updaterScript: !<MappingBased.PlayerPositionUpdater> e427ab66-c084-428c-b694-2d58dd88f628
   ScriptTypes:
     "":
       {}
@@ -9361,7 +9363,7 @@
     - dd080a47-b06d-451d-8d5e-8c0e47efd467: 393989e7-92a9-48b7-8314-740604f37b6e
     - e5144447-0ae1-49e3-ac75-58d498a63e0c: 73324e2d-30ec-4033-99ae-a539af8f129f
   Name: SyncTransform
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -13488,6 +13490,22 @@
     - !<own> 649ea304-cf53-4250-b264-ea628ffea84c
   Components:
     []
+- !<ScriptComponent/e427ab66-c084-428c-b694-2d58dd88f628>
+  PrefabRemaps:
+    []
+  Name: PlayerPositionUpdater
+  Enabled: true
+  ScriptAsset: !<reference> b0da4c5e-d998-436c-bc4d-bd196e18a7ab
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/e464b13c-db00-4981-985d-fe2cdc05d4c0>
   PrefabRemaps:
     []

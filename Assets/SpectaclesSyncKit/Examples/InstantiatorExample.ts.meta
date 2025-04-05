@@ -28,15 +28,18 @@
   ScriptInputsHidden:
     instantiator: false
     prefab: false
+    updaterScript: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
     - instantiator: !<MappingBased.Instantiator> 00000000-0000-0000-0000-000000000000
       prefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      updaterScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input Instantiator instantiator
     - // @input Asset.ObjectPrefab prefab
+    - // @input PlayerPositionUpdater updaterScript
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

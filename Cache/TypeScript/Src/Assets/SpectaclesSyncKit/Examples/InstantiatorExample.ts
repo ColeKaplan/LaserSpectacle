@@ -1,3 +1,4 @@
+import { PlayerPositionUpdater } from "../../Scripts/PlayerPositionUpdater"
 import {Instantiator} from "../Components/Instantiator"
 import { NetworkRootInfo } from "../Core/NetworkRootInfo"
 import {SyncKitLogger} from "../Utils/SyncKitLogger"
@@ -14,6 +15,9 @@ export class InstantiatorExample extends BaseScriptComponent {
   @input()
   prefab: ObjectPrefab
 
+  @input()
+  updaterScript: PlayerPositionUpdater
+
   onAwake() {
     this.instantiator.notifyOnReady(() => {
       this.onReady()
@@ -26,6 +30,7 @@ export class InstantiatorExample extends BaseScriptComponent {
       {},
       (networkRootInfo: NetworkRootInfo) => {
         const newObj = networkRootInfo.instantiatedObject;
+        this.updaterScript.registerCollider(newObj);
         print('Cole instantiated new object: ' + newObj);
       }
     );

@@ -17,6 +17,8 @@ dock:
                 Uuid: a14d85d7-9a15-42a6-913e-3f24dea267c2
               - persistentName: Snap.Plugin.Gui.ConnectedLensMonitorPanel
                 Uuid: 8e849182-8aea-41e5-9781-c7d479d97b6e
+              - persistentName: Snap.Plugin.Gui.ScriptEditorPanel
+                Uuid: 3bf2a1d1-6fc7-423a-b0e9-5186c2a62dd1
             type: section
             current: 0
           - items:

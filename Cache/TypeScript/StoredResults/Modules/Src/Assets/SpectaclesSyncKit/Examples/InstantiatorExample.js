@@ -20,6 +20,7 @@ let InstantiatorExample = InstantiatorExample_1 = class InstantiatorExample exte
     onReady() {
         this.instantiator.instantiate(this.prefab, {}, (networkRootInfo) => {
             const newObj = networkRootInfo.instantiatedObject;
+            this.updaterScript.registerCollider(newObj);
             print('Cole instantiated new object: ' + newObj);
         });
     }
