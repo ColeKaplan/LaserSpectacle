@@ -1,0 +1,11 @@
+CollapsedEntities:
+  type: stringset
+  value:
+    size: 5
+    values:
+      - Scripts
+      - SpectaclesSyncKit
+      - SpectaclesSyncKit/Examples/InstantiatorExample.ts
+      - SpectaclesSyncKit/SpectaclesInteractionKit/package.native
+      - SpectaclesSyncKit/package.native
+  options: 4
