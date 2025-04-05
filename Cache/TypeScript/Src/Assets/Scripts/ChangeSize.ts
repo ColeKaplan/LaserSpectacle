@@ -34,6 +34,6 @@ export class ChangeSize extends BaseScriptComponent {
     }
 
     onUpdate() {
-
+ // Andy a loser
     }
 }

@@ -28,6 +28,7 @@ let ChangeSize = class ChangeSize extends BaseScriptComponent {
         interactable.onInteractorTriggerStart(onTriggerStartCallback);
     }
     onUpdate() {
+        // Andy a loser
     }
 };
 exports.ChangeSize = ChangeSize;
