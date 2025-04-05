@@ -1,9 +1,9 @@
-- !<Material/2079b520-c420-421b-b96e-a9c748693285>
+- !<Material/7fb575db-1a67-4ea8-8c3e-5cf9ea6d774d>
   PackagePath: ""
   PassesInfo:
-    - !<own> 302cb7f3-e400-461a-a23d-6bb72a97b2cc
+    - !<own> 52678199-79f6-4f23-9668-f12fffb2bf6c
   Name: Material_Simulate
-- !<PassInfo/302cb7f3-e400-461a-a23d-6bb72a97b2cc>
+- !<PassInfo/52678199-79f6-4f23-9668-f12fffb2bf6c>
   CachedProperties:
     []
   DepthWrite: false

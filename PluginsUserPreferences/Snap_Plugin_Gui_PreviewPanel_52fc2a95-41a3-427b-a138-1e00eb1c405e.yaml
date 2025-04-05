@@ -4,7 +4,7 @@ backCameraMultimedia:
   options: 4
 cameraType:
   type: int
-  value: 1
+  value: 0
   options: 4
 deviceType:
   type: string
@@ -24,11 +24,11 @@ fullscreenSpectaclesSimulation:
   options: 4
 lastPosition:
   type: vec3
-  value: {x: -28.150658, y: 0.000000, z: -76.928284}
+  value: {x: -51.076988, y: 0.000000, z: 77.192947}
   options: 4
 lastRotation:
   type: vec3
-  value: {x: 178.949829, y: 5.700580, z: -180.000000}
+  value: {x: -7.500017, y: -8.849983, z: 0.000029}
   options: 4
 mirrorHorizontally:
   type: bool

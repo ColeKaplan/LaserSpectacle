@@ -1,0 +1,41 @@
+- !<ObjectPrefab/3a9bcb72-19d4-438e-8788-7d46a82112e7>
+  PackagePath: ""
+  objects:
+    - !<own> 05c16ad3-bb75-4e73-b94d-dce328bcec33
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/05c16ad3-bb75-4e73-b94d-dce328bcec33>
+  PrefabRemaps:
+    []
+  Name: LaserPlane
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: -5.869857, y: -3.113794, z: 0.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 100.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 6df99851-0122-4e57-ada7-2edc48bce5d4
+- !<RenderMeshVisual/6df99851-0122-4e57-ada7-2edc48bce5d4>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> d10f460a-aa02-4974-adc8-b43abd9b27ba
+  Mesh: !<reference> 690a9a1f-57bb-4873-bee8-52e89aa45199
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}

@@ -1,5 +1,6 @@
 ExternalSources:
   type: "std::map<Es::Uuid, Es::Path>"
   value:
-    []
+    - 1e902266-f8f9-47b4-84d3-5bb8da3cc7dc: /Users/colekaplan/Downloads/small-explosion-103931.mp3
+    - 683e34f1-2782-4847-90b7-65f387c92847: /Users/colekaplan/Downloads/laser-312360.mp3
   options: 4

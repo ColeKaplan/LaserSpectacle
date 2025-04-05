@@ -19,7 +19,7 @@ export class PlayerPositionUpdater extends BaseScriptComponent {
 
     onUpdate() {
         if (this.collider) {
-            print("collider exists and position is: " + this.collider.getTransform().getLocalPosition())
+            // print("collider exists and position is: " + this.collider.getTransform().getLocalPosition())
             this.collider.getTransform().setLocalPosition(this.sceneObject.getTransform().getLocalPosition());
         }
     }
