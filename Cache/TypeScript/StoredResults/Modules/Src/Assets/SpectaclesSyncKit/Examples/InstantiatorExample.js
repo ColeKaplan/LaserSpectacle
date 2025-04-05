@@ -18,8 +18,10 @@ let InstantiatorExample = InstantiatorExample_1 = class InstantiatorExample exte
         });
     }
     onReady() {
-        this.log.i("Hi Cole, Ghost should be instantiated");
-        this.instantiator.instantiate(this.prefab);
+        this.instantiator.instantiate(this.prefab, {}, (networkRootInfo) => {
+            const newObj = networkRootInfo.instantiatedObject;
+            print('Cole instantiated new object: ' + newObj);
+        });
     }
     __initialize() {
         super.__initialize();

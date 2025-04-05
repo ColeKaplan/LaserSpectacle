@@ -1,4 +1,5 @@
 import {Instantiator} from "../Components/Instantiator"
+import { NetworkRootInfo } from "../Core/NetworkRootInfo"
 import {SyncKitLogger} from "../Utils/SyncKitLogger"
 
 @component
@@ -20,7 +21,13 @@ export class InstantiatorExample extends BaseScriptComponent {
   }
 
   onReady() {
-    this.log.i("Hi Cole, Ghost should be instantiated")
-    this.instantiator.instantiate(this.prefab)
+    this.instantiator.instantiate(
+      this.prefab,
+      {},
+      (networkRootInfo: NetworkRootInfo) => {
+        const newObj = networkRootInfo.instantiatedObject;
+        print('Cole instantiated new object: ' + newObj);
+      }
+    );
   }
 }
