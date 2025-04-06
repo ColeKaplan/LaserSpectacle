@@ -1,0 +1,127 @@
+- !<ObjectPrefab/00bdcf77-c62f-42a3-bfeb-95260cde7641>
+  PackagePath: ""
+  objects:
+    - !<own> c336de6f-889d-4e89-bca6-bd1c1290e3c1
+  LazyLoading: false
+  RetainAssets: true
+- !<RenderMeshVisual/08cab4e0-0db3-4ea5-8bc3-123af1b790e7>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 3a9025a6-9239-4894-bb43-ccff43c57911
+  Mesh: !<reference> 883f7062-d68a-4022-8023-2b94b31281c9
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ColliderComponent/0f3d879b-2924-4856-9e14-97abfd446757>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Sphere>
+    FitVisual: true
+    Radius: 6.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+- !<ScriptComponent/4e065c61-c89b-471a-b912-6b51afaa92cf>
+  PrefabRemaps:
+    []
+  Name: SyncEntity
+  Enabled: true
+  ScriptAsset: !<reference> 4d117214-18ac-4128-9fa1-ea62263a7ed6
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/af5b0472-f7da-4394-9b57-85a36ce00952>
+  PrefabRemaps:
+    []
+  Name: BallLauncher
+  Enabled: false
+  ScriptAsset: !<reference> d53cb6d1-30c9-4f20-99dd-154fcda99b18
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      lifetime: !<float> 1.000000
+      speed: !<float> 5.000000
+      hitSound: !<reference.AudioComponent> ed18ba0c-56be-471e-96b3-834c51b37faa
+      scoreUpdater: !<MappingBased.ScoreUpdater> e7cd7f1e-f2ad-4654-8347-54b37d905c45
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/af70257a-2319-418c-bd84-bf081d2746c9>
+  PrefabRemaps:
+    []
+  Name: SyncTransform
+  Enabled: false
+  ScriptAsset: !<reference> f3c20594-375f-43d8-a93f-a8e75bd6a61d
+  ScriptInputsDefault:
+    networkIdTypeString: true
+    customNetworkId: true
+    persistenceString: true
+    sendsPerSecondLimit: true
+    useSmoothing: true
+    interpolationTarget: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      networkIdTypeString: objectId
+      customNetworkId: enter_unique_id
+      positionSyncString: Location
+      rotationSyncString: Location
+      scaleSyncString: Location
+      persistenceString: Session
+      sendsPerSecondLimit: 10
+      useSmoothing: true
+      interpolationTarget: -0.250000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/c336de6f-889d-4e89-bca6-bd1c1290e3c1>
+  PrefabRemaps:
+    []
+  Name: LaserBall
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> af5b0472-f7da-4394-9b57-85a36ce00952
+    - !<own> 08cab4e0-0db3-4ea5-8bc3-123af1b790e7
+    - !<own> 0f3d879b-2924-4856-9e14-97abfd446757
+    - !<own> af70257a-2319-418c-bd84-bf081d2746c9
+    - !<own> 4e065c61-c89b-471a-b912-6b51afaa92cf

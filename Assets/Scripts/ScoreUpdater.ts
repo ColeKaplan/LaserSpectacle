@@ -12,7 +12,7 @@ export class ScoreUpdater extends BaseScriptComponent {
     }
 
     public updateScore() {
-        this.score += .5
+        this.score += 1
         this.scoreText.text = "Score: " + this.score
     }
 

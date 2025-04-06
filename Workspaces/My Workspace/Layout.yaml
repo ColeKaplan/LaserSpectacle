@@ -16,17 +16,30 @@ dock:
             type: section
             current: 0
         sizes:
-          - 408
-          - 391
+          - 400
+          - 399
         type: splitter
         orientation: vertical
       - items:
-          - persistentName: Snap.Plugin.Gui.SceneEditor
-            Uuid: a14d85d7-9a15-42a6-913e-3f24dea267c2
-          - persistentName: Snap.Plugin.Gui.SceneEditor
-            Uuid: a89a37a7-1d00-4d62-8f44-d97e95ff7671
-        type: section
-        current: 0
+          - items:
+              - persistentName: Snap.Plugin.Gui.SceneEditor
+                Uuid: a14d85d7-9a15-42a6-913e-3f24dea267c2
+              - persistentName: Snap.Plugin.Gui.SceneEditor
+                Uuid: a89a37a7-1d00-4d62-8f44-d97e95ff7671
+            type: section
+            current: 0
+          - items:
+              - persistentName: Snap.Plugin.Gui.LoggerPanel
+                Uuid: 81de965d-0c94-4d28-82cf-901740003a1f
+              - persistentName: Snap.Plugin.Gui.SpectaclesMonitorPanel
+                Uuid: 81eba118-ca47-47c0-ac98-901552142546
+            type: section
+            current: 0
+        sizes:
+          - 400
+          - 399
+        type: splitter
+        orientation: vertical
       - items:
           - persistentName: Snap.Plugin.Gui.InspectorPanel
             Uuid: 780d9164-e681-4de1-b586-5213ed5523b9
@@ -53,28 +66,9 @@ dock:
         type: splitter
         orientation: vertical
     sizes:
-      - 274
-      - 355
+      - 258
+      - 371
       - 379
       - 487
     type: splitter
     orientation: horizontal
-  windows:
-    - items:
-        - items:
-            - persistentName: Snap.Plugin.Gui.LoggerPanel
-              Uuid: 81de965d-0c94-4d28-82cf-901740003a1f
-            - persistentName: Snap.Plugin.Gui.SpectaclesMonitorPanel
-              Uuid: 81eba118-ca47-47c0-ac98-901552142546
-          type: section
-          current: 0
-      sizes:
-        - 336
-      type: splitter
-      orientation: vertical
-      geometry:
-        x: 282
-        y: 541
-        w: 355
-        h: 354
-      screen: ""

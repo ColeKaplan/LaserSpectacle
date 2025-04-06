@@ -28,8 +28,8 @@ export class LaserCollisions extends BaseScriptComponent {
 
 
     onStart() {
-        print("laser created")
-        this.destroySelf();
+        // print("laser created")
+        // this.destroySelf();
 
         this.sceneObject.getComponent("Physics.ColliderComponent").onOverlapEnter.add((e) => {
 
@@ -39,49 +39,60 @@ export class LaserCollisions extends BaseScriptComponent {
             let closestHit = null;
             let wCamera = WorldCameraFinderProvider.getInstance().getWorldPosition()
             let hitObject: SceneObject = null
+            try {
+                e.currentOverlaps.forEach(contact => {
+                    // print("TYPE NAME: " + contact.getTypeName())
+                    let objectHit = contact.collider.getSceneObject()
+                    // print("name: " + objectHit.name)
+                    let objectHitT = objectHit.getTransform()
 
-            e.currentOverlaps.forEach(contact => {
-                let objectHit = overlap.collider.getSceneObject()
-                let objectHitT = objectHit.getTransform()
+                    try {
+                        if (objectHit.name == "LaserPlane") {
+                            // print("hit another laser")
+                        } else if (objectHit.name == "World Transform") {
+                            print("hit world transform")
 
-                try {
-                    if (objectHit.name == "LaserPlane") {
-                        // print("hit another laser")
-                    } else if (objectHit.name == "SyncTransform") {
-                        print("hit cyllinder")
-                        if (this.laserSound) {
-                            this.laserSound.play(1.0);
-                        }
-
-                        isPersonHit = true
-
-                        if (closestHit == null) {
-                            hitObject = overlap.collider.getSceneObject()
-                            closestHit = contact.collider.sceneObject.getTransform().getWorldPosition()
-                            print("closest hit: " + closestHit)
-                        }
-                        else {
-                            if (contact.collider.sceneObject.getTransform().getWorldPosition().distance(wCamera) < closestHit.distance(wCamera)) {
-                                closestHit = contact.collider.sceneObject.getTransform().getWorldPosition()
-                                hitObject = contact.collider.getSceneObject()
+                        } else if (objectHit.name == "Player") {
+                            print("hit cyllinder")
+                            print("cyllinder id: " + contact.id)
+                            if (this.laserSound) {
+                                this.laserSound.play(1.0);
                             }
+
+                            isPersonHit = true
+
+                            if (closestHit == null) {
+                                hitObject = overlap.collider.getSceneObject()
+                                closestHit = contact.collider.sceneObject.getTransform().getWorldPosition()
+                                // print("closest hit: " + closestHit)
+                                // print(hitObject.name)
+                            }
+                            else {
+                                if (contact.collider.sceneObject.getTransform().getWorldPosition().distance(wCamera) < closestHit.distance(wCamera)) {
+                                    closestHit = contact.collider.sceneObject.getTransform().getWorldPosition()
+                                    hitObject = contact.collider.getSceneObject()
+                                }
+                            }
+
+                            let interactionManager = SIK.InteractionManager;
+                            let handInteractor = interactionManager.getInteractorsByType(
+                                InteractorInputType.LeftHand
+                            )[0];
+                            const handPosition = handInteractor.startPoint;
+                            const distance = handPosition.distance(closestHit)
+                            this.sceneObject.getTransform().setWorldScale(new vec3(1, 1, distance))
+                            // this.sceneObject.getTransform().setWorldPosition(handPosition)
+
+                            this.sceneObject.destroy()
                         }
-
-                        let interactionManager = SIK.InteractionManager;
-                        let handInteractor = interactionManager.getInteractorsByType(
-                            InteractorInputType.LeftHand
-                        )[0];
-                        const handPosition = handInteractor.startPoint;
-                        const distance = handPosition.distance(closestHit)
-                        this.sceneObject.getTransform().setWorldScale(new vec3(1, 1, distance))
-                        // this.sceneObject.getTransform().setWorldPosition(handPosition)
-
-                        this.sceneObject.destroy()
+                    } catch (error) {
+                        print("first error line: " + error)
                     }
-                } catch (error) {
-                    print(error)
-                }
-            })
+                })
+            }
+            catch (error) {
+                print("second error line: " + error)
+            }
 
             if (isPersonHit) {
                 this.scoreUpdater.updateScore()

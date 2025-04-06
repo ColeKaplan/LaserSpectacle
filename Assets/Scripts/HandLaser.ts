@@ -1,13 +1,11 @@
 import { SIK } from "../SpectaclesSyncKit/SpectaclesInteractionKit/SIK";
 import { InteractorInputType } from "../SpectaclesSyncKit/SpectaclesInteractionKit/Core/Interactor/Interactor";
-import { HandInputData } from "../SpectaclesSyncKit/SpectaclesInteractionKit/Providers/HandInputData/HandInputData";
 import { Instantiator } from "../SpectaclesSyncKit/Components/Instantiator";
 import { NetworkRootInfo } from "../SpectaclesSyncKit/Core/NetworkRootInfo";
-import { PlayerPositionUpdater } from "./PlayerPositionUpdater";
 import { PinchButton } from "../SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/PinchButton/PinchButton";
 
 @component
-export class ExampleHandScript extends BaseScriptComponent {
+export class HandLaser extends BaseScriptComponent {
   // Define a public variable for your target object
   @input()
   public laserPrefab: ObjectPrefab;
@@ -19,13 +17,14 @@ export class ExampleHandScript extends BaseScriptComponent {
   @input()
   public laserSound: AudioComponent;
 
-  @input
-  UI: PinchButton
+  // @input
+  // UI: PinchButton
 
   private canInstantiate: boolean
 
 
   onAwake() {
+    // print("awake")
     this.canInstantiate = false;
 
     this.createEvent("UpdateEvent").bind(() => {
@@ -39,9 +38,9 @@ export class ExampleHandScript extends BaseScriptComponent {
       this.canInstantiate = true
     })
 
-    this.UI.onButtonPinched.add(() => {
-      this.shootLaser();
-    })
+    // this.UI.onButtonPinched.add(() => {
+    //   this.shootLaser();
+    // })
   }
 
   setupPinchDetection() {
@@ -67,7 +66,8 @@ export class ExampleHandScript extends BaseScriptComponent {
   }
 
   shootLaser() {
-    if (this.canInstantiate) {
+    // print("shoot laser triggered")
+    if (this.canInstantiate && false) {
       this.instantiator.instantiate(
         this.laserPrefab,
         {},
@@ -81,6 +81,11 @@ export class ExampleHandScript extends BaseScriptComponent {
   }
 
   public positionAndRotateLaser(targetObject: SceneObject) {
+
+    const probe = Physics.createGlobalProbe();
+    probe.filter.includeStatic = true;
+    probe.filter.includeDynamic = true;
+
 
     // Get the interactor for the specified hand
     let interactionManager = SIK.InteractionManager;
@@ -100,6 +105,22 @@ export class ExampleHandScript extends BaseScriptComponent {
     // Calculate direction from hand to cursor
     const direction = cursorPosition.sub(handPosition).normalize();
 
+    let hitDistance = 20000; // Default max distance
+    let endPos = handPosition.add(direction.uniformScale(hitDistance));
+    let worldCollision = false;
+
+    // Use physics raycast to detect collision with world mesh
+    probe.rayCast(handPosition, endPos, (hit) => {
+      if (hit) {
+        print("Hit detected! Distance: " + hit.distance + " Collider: " + hit.collider);
+        worldCollision = true
+        hitDistance = hit.distance;
+        endPos = hit.position;
+      } else {
+        print("No hit detected");
+      }
+    });
+
     // Get the transform of the target object (laser)
     const transform = targetObject.getTransform();
 
@@ -115,82 +136,89 @@ export class ExampleHandScript extends BaseScriptComponent {
     // Create rotation from axis and angle
     const rotation = quat.angleAxis(angle, rotationAxis);
     transform.setWorldRotation(rotation);
-    transform.setWorldScale(transform.getWorldScale().mult(new vec3(1,1,10)))
+    
+    // if (worldCollision) {
+    //   const zDistance = transform.getWorldScale().z
+    //   transform.setWorldScale(transform.getWorldScale().mult(new vec3(1, 1, hitDistance / zDistance)))
+    //   print("rescaling to distance: " + hitDistance)
+    // } else {
+      transform.setWorldScale(transform.getWorldScale().mult(new vec3(1, 1, 10)))
+    // }
 
 
-      // Play laser sound if available
-      if (this.laserSound) {
-        this.laserSound.play(1.0);
-      }
-
-      // Make the object visible
-      targetObject.enabled = true;
-
-      // print(`Laser propagating from ${handName} hand!`);
+    // Play laser sound if available
+    if (this.laserSound) {
+      this.laserSound.play(1.0);
     }
 
-    // New method to animate the laser propagation
-    animateLaserPropagation(targetObject: SceneObject, startPos: vec3, endPos: vec3, direction: vec3) {
-      // Calculate the total distance - now much longer
-      const totalDistance = startPos.distance(endPos);
+    // Make the object visible
+    targetObject.enabled = true;
 
-      // Get the transform of the target object (laser)
-      const transform = targetObject.getTransform();
+    // print(`Laser propagating from ${handName} hand!`);
+  }
 
-      // Reset scale to minimum
-      transform.setWorldScale(new vec3(1, 1, 0.1));
+  // New method to animate the laser propagation
+  animateLaserPropagation(targetObject: SceneObject, startPos: vec3, endPos: vec3, direction: vec3) {
+    // Calculate the total distance - now much longer
+    const totalDistance = startPos.distance(endPos);
 
-      // Create variables for animation
-      let headPosition = 0.1;  // Front of the laser
-      let tailPosition = 0;    // Back of the laser
-      const beamLength = 200;    // Increased length of the visible laser beam
-      const propagationSpeed = 5; // Increased speed of the laser propagation
+    // Get the transform of the target object (laser)
+    const transform = targetObject.getTransform();
 
-      // Clear any existing animation events
-      if (this.laserAnimationEvent) {
-        this.laserAnimationEvent.remove();
-        this.laserAnimationEvent = null;
+    // Reset scale to minimum
+    transform.setWorldScale(new vec3(1, 1, 0.1));
+
+    // Create variables for animation
+    let headPosition = 0.1;  // Front of the laser
+    let tailPosition = 0;    // Back of the laser
+    const beamLength = 200;    // Increased length of the visible laser beam
+    const propagationSpeed = 5; // Increased speed of the laser propagation
+
+    // Clear any existing animation events
+    if (this.laserAnimationEvent) {
+      this.laserAnimationEvent.remove();
+      this.laserAnimationEvent = null;
+    }
+
+    // Create and store the animation event
+    this.laserAnimationEvent = this.createEvent("UpdateEvent").bind(() => {
+      // Increase the head position
+      headPosition = Math.min(headPosition + getDeltaTime() * propagationSpeed, totalDistance);
+
+      // Calculate where the tail should be
+      tailPosition = Math.max(0, headPosition - beamLength);
+
+      // Calculate the current beam length
+      const currentBeamLength = headPosition - tailPosition;
+
+      // Calculate the center position of the beam
+      const beamCenter = tailPosition + (currentBeamLength / 2);
+
+      // Multiply the direction vector by the scalar beamCenter to get the offset vector
+      const offset = direction.uniformScale(beamCenter);
+      const newPosition = startPos.add(offset);
+
+      // Update the position of the laser (move it forward as it propagates)
+
+      try {
+        transform.setWorldPosition(newPosition);
+        transform.setWorldScale(new vec3(1, 1, currentBeamLength));
+      } catch (error) {
+        print(error)
       }
 
-      // Create and store the animation event
-      this.laserAnimationEvent = this.createEvent("UpdateEvent").bind(() => {
-        // Increase the head position
-        headPosition = Math.min(headPosition + getDeltaTime() * propagationSpeed, totalDistance);
+      // If the head has reached the target distance and the tail has caught up to the end
+      if (headPosition >= totalDistance && tailPosition >= totalDistance) {
+        // Hide the laser when it's done
+        targetObject.enabled = false;
 
-        // Calculate where the tail should be
-        tailPosition = Math.max(0, headPosition - beamLength);
-
-        // Calculate the current beam length
-        const currentBeamLength = headPosition - tailPosition;
-
-        // Calculate the center position of the beam
-        const beamCenter = tailPosition + (currentBeamLength / 2);
-
-        // Multiply the direction vector by the scalar beamCenter to get the offset vector
-        const offset = direction.uniformScale(beamCenter);
-        const newPosition = startPos.add(offset);
-
-        // Update the position of the laser (move it forward as it propagates)
-
-        try {
-          transform.setWorldPosition(newPosition);
-          transform.setWorldScale(new vec3(1, 1, currentBeamLength));
-        } catch (error) {
-          print(error)
+        if (this.laserAnimationEvent) {
+          this.laserAnimationEvent.remove();
+          this.laserAnimationEvent = null;
         }
-
-        // If the head has reached the target distance and the tail has caught up to the end
-        if (headPosition >= totalDistance && tailPosition >= totalDistance) {
-          // Hide the laser when it's done
-          targetObject.enabled = false;
-
-          if (this.laserAnimationEvent) {
-            this.laserAnimationEvent.remove();
-            this.laserAnimationEvent = null;
-          }
-        }
-      });
-    }
+      }
+    });
+  }
 
   // Initialize the property in the class
   private laserAnimationEvent: any = null;

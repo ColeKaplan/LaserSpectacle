@@ -180,7 +180,7 @@
   Name: Physics Body
   Enabled: true
   Shape: !<Mesh>
-    Mesh: !<reference> 3f5aeeb9-66f4-4d47-882a-8e659990b026
+    Mesh: !<reference> c7b55f95-afed-4828-bc17-10c0093fa095
     Convex: false
     Skin: !<reference> 00000000-0000-0000-0000-000000000000
   Matter: !<reference> 00000000-0000-0000-0000-000000000000
@@ -278,7 +278,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> c71dde88-df6c-46a6-8426-d07b956a747e
+    - !<reference> d18c39ef-9d02-488f-bcae-a1301472cfd4
   Mesh: !<reference> 3f5aeeb9-66f4-4d47-882a-8e659990b026
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true

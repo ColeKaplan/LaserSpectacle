@@ -1,0 +1,48 @@
+- !<AssetImportMetadata/5cae0951-8011-475a-83a8-101161d81163>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> d53cb6d1-30c9-4f20-99dd-154fcda99b18
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> d53cb6d1-30c9-4f20-99dd-154fcda99b18
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 56c3f50d-647d-4b41-9c2a-d5144d9281df
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/56c3f50d-647d-4b41-9c2a-d5144d9281df>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 4b9cd75d-837c-460d-9202-7de3a4c888b4
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    hitSound: false
+    lifetime: false
+    scoreUpdater: false
+    speed: false
+  ScriptTypesHidden:
+    {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - lifetime: !<float> 0.000000
+      speed: !<float> 0.000000
+      hitSound: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      scoreUpdater: !<MappingBased.ScoreUpdater> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input float lifetime
+    - // @input float speed
+    - // @input Component.AudioComponent hitSound
+    - // @input ScoreUpdater scoreUpdater

@@ -1,45 +1,48 @@
-- !<AssetImportMetadata/b11d69b4-39c1-41a8-955a-75dc1579d6b1>
+- !<AssetImportMetadata/2b95d5ca-94e4-4f03-8ad3-ded8e5cf0d70>
   ImportedAssetIds:
-    TypeScriptAsset: !<reference> d478e6b3-1450-4eda-a043-fd09ac7c606e
+    TypeScriptAsset: !<reference> 0de91218-b6cd-414e-8e4c-661b701bec52
   ImporterName: TypeScriptAssetImporter
-  PrimaryAsset: !<reference> d478e6b3-1450-4eda-a043-fd09ac7c606e
+  PrimaryAsset: !<reference> 0de91218-b6cd-414e-8e4c-661b701bec52
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
   ExtraData:
     {}
   AssetDataMap:
-    TypeScriptAsset: !<own> fb4083a5-fb18-4122-814e-b6d5654f39dc
+    TypeScriptAsset: !<own> 414520c5-5612-4113-81ad-62aa266dac10
   DependentFiles:
     []
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<TypeScriptAssetData/fb4083a5-fb18-4122-814e-b6d5654f39dc>
+- !<TypeScriptAssetData/414520c5-5612-4113-81ad-62aa266dac10>
   SvgIcon: ""
   Description: ""
   InternalVersion: 0
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
-  ComponentUid: 00a662c0-920f-42ca-91d5-24a70ae942fd
+  ComponentUid: 36a42ce8-4b00-4102-8969-5ec5bfe6078c
   ExportUid: 00000000-0000-0000-0000-000000000000
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
+    deviceTracking: false
     instantiator: false
-    laserPrefab: false
+    laserObject: false
     laserSound: false
   ScriptTypesHidden:
     {}
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
-    - laserSound: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
-      laserPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+    - laserObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      deviceTracking: !<reference.DeviceTracking> 00000000-0000-0000-0000-000000000000
+      laserSound: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       instantiator: !<MappingBased.Instantiator> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
-    - // @input Asset.ObjectPrefab laserPrefab
-    - // @input Instantiator instantiator
+    - // @input Asset.ObjectPrefab laserObject
     - // @input Component.AudioComponent laserSound
+    - // @input Instantiator instantiator
+    - // @input Component.DeviceTracking deviceTracking

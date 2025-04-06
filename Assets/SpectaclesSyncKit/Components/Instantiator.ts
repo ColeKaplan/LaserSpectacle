@@ -155,7 +155,7 @@ export class Instantiator extends BaseScriptComponent {
 
   private spawningInstances: Map<string, SceneObject> = new Map()
 
-  private syncEntity = new SyncEntity(this)
+  private syncEntity = new SyncEntity(this, null, true)
 
   private log = new SyncKitLogger(TAG)
 
