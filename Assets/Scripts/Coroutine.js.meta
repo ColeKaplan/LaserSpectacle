@@ -1,39 +1,38 @@
-- !<AssetImportMetadata/e64f3483-35be-46ce-adac-6d4df3abb9d6>
+- !<AssetImportMetadata/e3b3d578-2264-48f5-9f39-2709f1f8021c>
   ImportedAssetIds:
-    TypeScriptAsset: !<reference> 0c31ca03-71a5-44c7-8998-56e5fb50146b
-  ImporterName: TypeScriptAssetImporter
-  PrimaryAsset: !<reference> 0c31ca03-71a5-44c7-8998-56e5fb50146b
+    JavaScriptAsset: !<reference> 90cc8744-a22a-47ad-b4de-1c06042b8031
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 90cc8744-a22a-47ad-b4de-1c06042b8031
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
   ExtraData:
-    {}
+    AssetLibraryId: 11g9RW0LDdEygLc80gdTWg
   AssetDataMap:
-    TypeScriptAsset: !<own> 48839645-c4a6-45ce-97d3-4f294300f356
+    JavaScriptAsset: !<own> 6433986d-653d-43ee-9dc9-b2d8e39ac94c
   DependentFiles:
     []
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<TypeScriptAssetData/48839645-c4a6-45ce-97d3-4f294300f356>
+- !<ScriptAssetData/6433986d-653d-43ee-9dc9-b2d8e39ac94c>
   SvgIcon: ""
   Description: ""
   InternalVersion: 0
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
-  ComponentUid: 6c96f46d-d9ff-411a-a4af-931390353dbe
+  ComponentUid: f23bf0ad-d4fa-4350-ae6f-c817ff59f707
   ExportUid: 00000000-0000-0000-0000-000000000000
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
-    laserSound: false
+    {}
   ScriptTypesHidden:
     {}
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
-    - laserSound: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+    -
+      {}
   ScriptTypes:
     -
       {}
-  InputLines:
-    - // @input Component.AudioComponent laserSound

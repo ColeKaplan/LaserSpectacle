@@ -1,7 +1,7 @@
-import { PlayerPositionUpdater } from "../../Scripts/PlayerPositionUpdater"
-import {Instantiator} from "../Components/Instantiator"
-import { NetworkRootInfo } from "../Core/NetworkRootInfo"
-import {SyncKitLogger} from "../Utils/SyncKitLogger"
+import { PlayerPositionUpdater } from "./PlayerPositionUpdater"
+import {Instantiator} from "../SpectaclesSyncKit/Components/Instantiator"
+import { NetworkRootInfo } from "../SpectaclesSyncKit/Core/NetworkRootInfo"
+import {SyncKitLogger} from "../SpectaclesSyncKit/Utils/SyncKitLogger"
 
 @component
 export class InstantiatorExample extends BaseScriptComponent {
@@ -30,6 +30,7 @@ export class InstantiatorExample extends BaseScriptComponent {
       {},
       (networkRootInfo: NetworkRootInfo) => {
         const newObj = networkRootInfo.instantiatedObject;
+        newObj.getTransform().setWorldScale(newObj.getTransform().getWorldScale().mult(new vec3(1,8,1)))
         this.updaterScript.registerCollider(newObj);
         print('Cole instantiated new object: ' + newObj);
       }

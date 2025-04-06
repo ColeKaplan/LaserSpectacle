@@ -1,10 +1,10 @@
-- !<ObjectPrefab/3a9bcb72-19d4-438e-8788-7d46a82112e7>
+- !<ObjectPrefab/6f9c6d09-ae72-450c-908f-db59c8f7e4d2>
   PackagePath: ""
   objects:
-    - !<own> 05c16ad3-bb75-4e73-b94d-dce328bcec33
+    - !<own> 366a5f21-18ec-4961-a647-972af5cf4661
   LazyLoading: false
   RetainAssets: true
-- !<SceneObject/05c16ad3-bb75-4e73-b94d-dce328bcec33>
+- !<SceneObject/366a5f21-18ec-4961-a647-972af5cf4661>
   PrefabRemaps:
     []
   Name: LaserPlane
@@ -18,8 +18,28 @@
   Children:
     []
   Components:
-    - !<own> 6df99851-0122-4e57-ada7-2edc48bce5d4
-- !<RenderMeshVisual/6df99851-0122-4e57-ada7-2edc48bce5d4>
+    - !<own> 6b56ced9-e4de-43fa-9b01-e05700bec46f
+    - !<own> d040bcf7-6c53-48cc-87ae-7286a61d52ee
+    - !<own> ab6cdd43-b6b0-4a81-a59e-d42026d20ada
+    - !<own> 6754ad61-250d-4ea9-830d-8f4f5e7039b6
+- !<AudioComponent/6754ad61-250d-4ea9-830d-8f4f5e7039b6>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 87e96e78-745a-438d-bc25-87978dd0adaf
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
+- !<RenderMeshVisual/6b56ced9-e4de-43fa-9b01-e05700bec46f>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -33,9 +53,43 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> d10f460a-aa02-4974-adc8-b43abd9b27ba
-  Mesh: !<reference> 690a9a1f-57bb-4873-bee8-52e89aa45199
+  Mesh: !<reference> 883f7062-d68a-4022-8023-2b94b31281c9
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
   BlendNormals: false
   BlendShapes:
     {}
+- !<ColliderComponent/ab6cdd43-b6b0-4a81-a59e-d42026d20ada>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: true
+    Size: {x: 15.000000, y: 15.000000, z: 15.000000}
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: true
+- !<ScriptComponent/d040bcf7-6c53-48cc-87ae-7286a61d52ee>
+  PrefabRemaps:
+    []
+  Name: LaserCollisions
+  Enabled: true
+  ScriptAsset: !<reference> 0c31ca03-71a5-44c7-8998-56e5fb50146b
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      laserSound: !<reference.AudioComponent> ed18ba0c-56be-471e-96b3-834c51b37faa
+  ScriptTypes:
+    "":
+      {}

@@ -11,16 +11,13 @@ export class PlayerPositionUpdater extends BaseScriptComponent {
     }
 
     public registerCollider(obj : SceneObject) {
-        print("registerCollider wsas called")
-        print(obj)
         this.collider = obj;
-        print(this.collider)
     }
 
     onUpdate() {
         if (this.collider) {
             // print("collider exists and position is: " + this.collider.getTransform().getLocalPosition())
-            this.collider.getTransform().setLocalPosition(this.sceneObject.getTransform().getLocalPosition());
+            this.collider.getTransform().setWorldPosition(this.sceneObject.getTransform().getWorldPosition());
         }
     }
 }

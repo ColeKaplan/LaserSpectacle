@@ -477,6 +477,7 @@ export class Instantiator extends BaseScriptComponent {
     options?: InstantiationOptions | InstantiationOptionsObj,
     onSuccess?: (networkRoot: NetworkRootInfo) => void
   ) {
+    // print("instantiating: " + prefab.name)
     if (!isNullOrUndefined(onSuccess)) {
       let optionsWithSuccess: InstantiationOptionsObj = options || {}
       optionsWithSuccess.onSuccess = optionsWithSuccess.onSuccess ?? onSuccess

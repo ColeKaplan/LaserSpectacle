@@ -26,14 +26,23 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
-    targetObject: false
+    UI: false
+    instantiator: false
+    laserPrefab: false
+    laserSound: false
   ScriptTypesHidden:
     {}
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
-    - targetObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+    - laserSound: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      laserPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      instantiator: !<MappingBased.Instantiator> 00000000-0000-0000-0000-000000000000
+      UI: !<MappingBased.PinchButton> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
-    - // @input SceneObject targetObject
+    - // @input Asset.ObjectPrefab laserPrefab
+    - // @input Instantiator instantiator
+    - // @input Component.AudioComponent laserSound
+    - // @input PinchButton UI

@@ -33,7 +33,7 @@
     {}
   DefaultScriptInputs:
     - instantiator: !<MappingBased.Instantiator> 00000000-0000-0000-0000-000000000000
-      prefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      prefab: !<reference.ObjectPrefab> 68193a86-bec7-4a5d-b5aa-2021f6bf712c
       updaterScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -

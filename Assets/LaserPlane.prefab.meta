@@ -1,35 +1,86 @@
-- !<AssetImportMetadata/b076cecc-567f-4fa8-813a-d6d4253fc5c1>
+- !<AssetImportMetadata/27157b12-41b6-44fc-b87e-16f30783cd52>
   ImportedAssetIds:
-    ObjectPrefab: !<reference> 3a9bcb72-19d4-438e-8788-7d46a82112e7
+    ObjectPrefab: !<reference> 6f9c6d09-ae72-450c-908f-db59c8f7e4d2
   ImporterName: ObjectPrefabImporter
-  PrimaryAsset: !<reference> 3a9bcb72-19d4-438e-8788-7d46a82112e7
+  PrimaryAsset: !<reference> 6f9c6d09-ae72-450c-908f-db59c8f7e4d2
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
   ExtraData:
     {}
   AssetDataMap:
-    ObjectPrefab: !<own> c147c68f-36bf-40e0-bec4-c9bdca20c12f
+    ObjectPrefab: !<own> 61c852c9-4069-4669-afc4-11571d1521dc
   DependentFiles:
     []
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<SceneObject/535e5d61-f50f-4b13-9cfb-b46b0a626b34>
+- !<ScriptComponent/08a70360-3e59-4e24-b0f2-8a35be116021>
   PrefabRemaps:
     []
-  Name: LaserPlane
+  Name: LaserCollisions
   Enabled: true
-  Layers: 1
-  LocalTransform:
-    position: {x: -5.869857, y: -3.113794, z: 0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 100.000000}
-    hasSegmentScaleCompensation: false
-  Children:
+  ScriptAsset: !<reference> 0c31ca03-71a5-44c7-8998-56e5fb50146b
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      laserSound: !<reference.AudioComponent> ed18ba0c-56be-471e-96b3-834c51b37faa
+  ScriptTypes:
+    "":
+      {}
+- !<AudioComponent/0f0131bd-e51f-48e6-8dd8-00a9dcefbdc4>
+  PrefabRemaps:
     []
-  Components:
-    - !<own> 801bb311-93be-44b9-abc1-46efcc36e434
-- !<RenderMeshVisual/801bb311-93be-44b9-abc1-46efcc36e434>
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 87e96e78-745a-438d-bc25-87978dd0adaf
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
+- !<ColliderComponent/3270d5a9-ce58-4418-94ff-a7ab884eb46e>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: true
+    Size: {x: 15.000000, y: 15.000000, z: 15.000000}
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: true
+- !<ObjectPrefabAssetData/61c852c9-4069-4669-afc4-11571d1521dc>
+  SourceRemaps:
+    - 366a5f21-18ec-4961-a647-972af5cf4661: e1ee06e3-62cc-4fe6-bfef-0b1e89cd61a1
+    - 6754ad61-250d-4ea9-830d-8f4f5e7039b6: 0f0131bd-e51f-48e6-8dd8-00a9dcefbdc4
+    - 6b56ced9-e4de-43fa-9b01-e05700bec46f: c981b2b0-08df-495d-af79-74b246321b5c
+    - 6f9c6d09-ae72-450c-908f-db59c8f7e4d2: 991dbe46-2312-4401-a97b-4378da6d11e3
+    - ab6cdd43-b6b0-4a81-a59e-d42026d20ada: 3270d5a9-ce58-4418-94ff-a7ab884eb46e
+    - d040bcf7-6c53-48cc-87ae-7286a61d52ee: 08a70360-3e59-4e24-b0f2-8a35be116021
+  SourceState: !<own> 991dbe46-2312-4401-a97b-4378da6d11e3
+- !<ObjectPrefab/991dbe46-2312-4401-a97b-4378da6d11e3>
+  PackagePath: ""
+  objects:
+    - !<own> e1ee06e3-62cc-4fe6-bfef-0b1e89cd61a1
+  LazyLoading: false
+  RetainAssets: true
+- !<RenderMeshVisual/c981b2b0-08df-495d-af79-74b246321b5c>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -43,21 +94,27 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> d10f460a-aa02-4974-adc8-b43abd9b27ba
-  Mesh: !<reference> 690a9a1f-57bb-4873-bee8-52e89aa45199
+  Mesh: !<reference> 883f7062-d68a-4022-8023-2b94b31281c9
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
   BlendNormals: false
   BlendShapes:
     {}
-- !<ObjectPrefab/9d878117-e86e-445e-875b-c9d1693cb959>
-  PackagePath: ""
-  objects:
-    - !<own> 535e5d61-f50f-4b13-9cfb-b46b0a626b34
-  LazyLoading: false
-  RetainAssets: true
-- !<ObjectPrefabAssetData/c147c68f-36bf-40e0-bec4-c9bdca20c12f>
-  SourceRemaps:
-    - 05c16ad3-bb75-4e73-b94d-dce328bcec33: 535e5d61-f50f-4b13-9cfb-b46b0a626b34
-    - 3a9bcb72-19d4-438e-8788-7d46a82112e7: 9d878117-e86e-445e-875b-c9d1693cb959
-    - 6df99851-0122-4e57-ada7-2edc48bce5d4: 801bb311-93be-44b9-abc1-46efcc36e434
-  SourceState: !<own> 9d878117-e86e-445e-875b-c9d1693cb959
+- !<SceneObject/e1ee06e3-62cc-4fe6-bfef-0b1e89cd61a1>
+  PrefabRemaps:
+    []
+  Name: LaserPlane
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: -5.869857, y: -3.113794, z: 0.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 100.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> c981b2b0-08df-495d-af79-74b246321b5c
+    - !<own> 08a70360-3e59-4e24-b0f2-8a35be116021
+    - !<own> 3270d5a9-ce58-4418-94ff-a7ab884eb46e
+    - !<own> 0f0131bd-e51f-48e6-8dd8-00a9dcefbdc4
