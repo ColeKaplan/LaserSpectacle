@@ -2,12 +2,16 @@ import { InteractorInputType } from "../SpectaclesSyncKit/SpectaclesInteractionK
 import WorldCameraFinderProvider from "../SpectaclesSyncKit/SpectaclesInteractionKit/Providers/CameraProvider/WorldCameraFinderProvider";
 import { SIK } from "../SpectaclesSyncKit/SpectaclesInteractionKit/SIK";
 import { CoroutineManager, waitForSeconds } from "./Coroutine"
+import { ScoreUpdater } from "./ScoreUpdater";
 
 @component
 export class LaserCollisions extends BaseScriptComponent {
 
     @input
-    laserSound : AudioComponent
+    laserSound: AudioComponent
+
+    @input
+    scoreUpdater: ScoreUpdater
 
     coroutineManager!: any;
     onAwake() {
@@ -45,10 +49,9 @@ export class LaserCollisions extends BaseScriptComponent {
                         // print("hit another laser")
                     } else if (objectHit.name == "SyncTransform") {
                         print("hit cyllinder")
-
                         if (this.laserSound) {
                             this.laserSound.play(1.0);
-                          }
+                        }
 
                         isPersonHit = true
 
@@ -81,7 +84,7 @@ export class LaserCollisions extends BaseScriptComponent {
             })
 
             if (isPersonHit) {
-                // this.dartboardController.playDartHitSound()
+                this.scoreUpdater.updateScore()
             }
         });
     }

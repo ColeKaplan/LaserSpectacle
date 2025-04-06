@@ -30,7 +30,8 @@ export class InstantiatorExample extends BaseScriptComponent {
       {},
       (networkRootInfo: NetworkRootInfo) => {
         const newObj = networkRootInfo.instantiatedObject;
-        newObj.getTransform().setWorldScale(newObj.getTransform().getWorldScale().mult(new vec3(1,8,1)))
+        newObj.getTransform().setWorldScale(newObj.getTransform().getWorldScale().mult(new vec3(8,80,8)))
+        newObj.getTransform().setWorldPosition(newObj.getTransform().getWorldPosition().add(new vec3(0,-100,0)))
         this.updaterScript.registerCollider(newObj);
         print('Cole instantiated new object: ' + newObj);
       }

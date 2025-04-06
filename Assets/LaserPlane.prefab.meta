@@ -27,6 +27,7 @@
   ScriptInputs:
     "":
       laserSound: !<reference.AudioComponent> ed18ba0c-56be-471e-96b3-834c51b37faa
+      scoreUpdater: !<MappingBased.ScoreUpdater> e7cd7f1e-f2ad-4654-8347-54b37d905c45
   ScriptTypes:
     "":
       {}
@@ -64,7 +65,7 @@
   RotationTension: 30.000000
   ForceCompound: false
   Intangible: false
-  ShowCollider: true
+  ShowCollider: false
 - !<ObjectPrefabAssetData/61c852c9-4069-4669-afc4-11571d1521dc>
   SourceRemaps:
     - 366a5f21-18ec-4961-a647-972af5cf4661: e1ee06e3-62cc-4fe6-bfef-0b1e89cd61a1

@@ -76,7 +76,7 @@
   RotationTension: 30.000000
   ForceCompound: false
   Intangible: false
-  ShowCollider: true
+  ShowCollider: false
 - !<ScriptComponent/d040bcf7-6c53-48cc-87ae-7286a61d52ee>
   PrefabRemaps:
     []
@@ -90,6 +90,7 @@
   ScriptInputs:
     "":
       laserSound: !<reference.AudioComponent> ed18ba0c-56be-471e-96b3-834c51b37faa
+      scoreUpdater: !<MappingBased.ScoreUpdater> e7cd7f1e-f2ad-4654-8347-54b37d905c45
   ScriptTypes:
     "":
       {}
